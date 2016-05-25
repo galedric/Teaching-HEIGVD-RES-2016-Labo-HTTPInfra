@@ -1,0 +1,10 @@
+{
+  "name": "http-step2",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies" : {
+    "express": "*",
+    "chance": "*"
+  } 
+}
+
