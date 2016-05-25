@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+<style>
+	#story {
+		background-color: #eee;
+		padding: 15px;
+		border: 1px solid #666;
+		margin: 20px 0 0 0;
+	}
+</style>
+
+<h1>A new story every 5 seconds</h1>
+
+<blockquote id="story"></blockquote>
+
+<script>
+	function reloadStory() {
+		$.getJSON("/api/story", function(data) {
+			$("#story").html("");
+			data.story.forEach(p => {
+				$("#story").append($("<p>").text(p));
+			});
+		});
+	}
+
+
+	reloadStory();
+	setInterval(reloadStory, 5 * 1000);
+</script>
+
